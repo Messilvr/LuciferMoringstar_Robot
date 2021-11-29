@@ -10,14 +10,14 @@ logger = logging.getLogger(__name__)
 lock = asyncio.Lock()
 
 
-@Client.on_message(filters.command(['index', 'indexfiles']) & filters.user(ADMINS))
+@Client.on_message(filters.command(['index', 'indexfiles']))
 async def index_files(bot, message):
     """Save channel or group files"""
     if lock.locked():
         await message.reply('Wait until previous process complete.')
     else:
         while True:
-            last_msg = await bot.ask(text = "Forward me last message of a channel which I should save to my database.\n\nYou can forward posts from any public channel, but for private channels bot should be an admin in the channel.\n\nMake sure to forward with quotes (Not as a copy)", chat_id = message.from_user.id)
+            last_msg = await bot.ask(text = "Forward me last message of a channel which I should save to my database.\n\nYou can forward posts from any public channel, but for private channels bot should be an admin in the channel.\n\nMake sure to forward with quotes (Not as a copy)\nMake sure the channel has only toons", chat_id = message.from_user.id)
             try:
                 last_msg_id = last_msg.forward_from_message_id
                 if last_msg.forward_from_chat.username:
@@ -79,7 +79,7 @@ async def index_files(bot, message):
             else:
                 await msg.edit(f'Total {total_files} Saved To DataBase!')
 
-RATING = ["5.1 | IMDB", "6.2 | IMDB", "7.3 | IMDB", "8.4 | IMDB", "9.5 | IMDB", ]
+RATING = ["5.1", "6.2", "7.3", "8.4", "9.5", ]
 GENRES = ["fun, fact",
          "Thriller, Comedy",
          "Drama, Comedy",
