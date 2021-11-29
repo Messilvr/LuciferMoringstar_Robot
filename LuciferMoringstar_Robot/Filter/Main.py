@@ -53,7 +53,7 @@ async def filter(client, message):
     if 2 < len(message.text) < 100:    
         btn = []
         search = message.text
-        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded by {message.chat.title}**"
+        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**📤By [Anime World](https://t.me/free_cartoons)**"
         files = await get_filter_results(query=search)
         if files:
             for file in files:
@@ -85,7 +85,7 @@ async def filter(client, message):
             if API_KEY:
                 poster=await get_poster(search)
             if poster:
-                await message.reply_photo(photo=poster, caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_photo(photo="https://te.legra.ph/file/1688daa934833fc510ba4.png", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
 
             else:
                 await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
@@ -104,7 +104,7 @@ async def filter(client, message):
         if API_KEY:
             poster=await get_poster(search)
         if poster:
-            await message.reply_photo(photo=poster, caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_photo(photo="https://te.legra.ph/file/1688daa934833fc510ba4.png", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
         else:
             await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
 
@@ -115,7 +115,7 @@ async def group(client, message):
     if 2 < len(message.text) < 50:    
         btn = []
         search = message.text
-        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**🎭 Genre:** {random.choice(GENRES)}\n**📤 Uploaded by {message.chat.title}**"
+        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**📤 Uploaded by {message.chat.title}**"
         nyva=BOT.get("username")
         if not nyva:
             botusername=await client.get_me()
@@ -130,17 +130,15 @@ async def group(client, message):
                     [InlineKeyboardButton(text=f"{filename}", url=f"https://telegram.dog/{nyva}?start=pr0fess0r_99_-_-_-_{file_id}")]
                 )
         else:
-            LuciferMoringstar=await client.send_message(
+            LuciferMoringstar=await client.send_photo(
+            photo="https://te.legra.ph/file/f6b2033e822e14b3b0218.png"    
             chat_id = message.chat.id,
             text=f"""
 👋Hey {message.from_user.mention}
-If this movie is not in our database you will not get that movie..
-Otherwise, the spelling of the name of the requested movie may not be correct...
-So you go to google and check the spelling of the name of the movie you want.
-ഈ സിനിമ ഞങ്ങളുടെ ഡാറ്റാബേസിൽ ഇല്ലെങ്കിൽ നിങ്ങൾക്ക് ഈ സിനിമ ലഭിക്കില്ല
-അല്ലെങ്കിൽ, അഭ്യർത്ഥിച്ച സിനിമയുടെ പേരിന്റെ അക്ഷരവിന്യാസം ശരിയായിരിക്കില്ല ...
-അതിനാൽ നിങ്ങൾ ഗൂഗിളിൽ പോയി നിങ്ങൾക്ക് ആവശ്യമുള്ള സിനിമയുടെ പേരിന്റെ സ്പെല്ലിംഗ് പരിശോധിക്കുക""",
-            parse_mode="html",
+The spelling of the name of the requested toon may not be correct...
+So you go to [Google](https://www.google.com/search?q={search}) and check the spelling of the name of the toon you want.
+
+Otherwise, This movie is may not in my database.",
             reply_to_message_id=message.message_id
         )
             return
@@ -163,7 +161,7 @@ So you go to google and check the spelling of the name of the movie you want.
             if API_KEY:
                 poster=await get_poster(search)
             if poster:
-                await message.reply_photo(photo=poster, caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_photo(photo="https://te.legra.ph/file/1688daa934833fc510ba4.png", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
             else:
                 await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
             return
@@ -181,7 +179,7 @@ So you go to google and check the spelling of the name of the movie you want.
         if API_KEY:
             poster=await get_poster(search)
         if poster:
-            await message.reply_photo(photo=poster, caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_photo(photo="https://te.legra.ph/file/1688daa934833fc510ba4.png", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
         else:
             await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
 
@@ -289,18 +287,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 return
         elif query.data == "help":
             buttons = [[
-                InlineKeyboardButton('Update Channel', url='t.me/Mo_Tech_YT'),
-                InlineKeyboardButton('Source Code', url="https://github.com/PR0FESS0R-99/LuciferMoringstar_Robot")
+                InlineKeyboardButton('Channel', url='t.me/free_music123'),
+                InlineKeyboardButton('Group', url='t.me/free_cartoons')
                 ],[
-                InlineKeyboardButton('💫Deploy Video💫', url=f'{TUTORIAL}')
+                InlineKeyboardButton('💫Dev💫', url="t.me/geronimo1234")
                 ]]
             await query.message.edit(text=f"{HELP}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "about":
             buttons = [
                 [
-                    InlineKeyboardButton('Update Channel', url='t.me/Mo_Tech_YT'),
-                    InlineKeyboardButton('Source Code', url=f'{TUTORIAL}')
+                    InlineKeyboardButton('Channel', url='t.me/free_music123'),
+                    InlineKeyboardButton('Group', url='t.me/free_cartoons')
                 ]
                 ]
             await query.message.edit(text=f"{ABOUT}".format(TUTORIAL), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -323,7 +321,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('💫 DEPLOY VIDEO 💫', url=f'{TUTORIAL}')
+                        InlineKeyboardButton('💫Dev💫', url="t.me/geronimo1234")
                     ]
                     ]
                 
@@ -354,7 +352,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{title}"
                 buttons = [
                     [
-                        InlineKeyboardButton('🖥️ How To Own 🖥️', url=f'{TUTORIAL}')
+                        InlineKeyboardButton('Group', url=f't.me/free_cartoons')
                     ]
                     ]
                 
@@ -370,4 +368,4 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "pages":
             await query.answer()
     else:
-        await query.answer("കൌതുകും ലേശം കൂടുതൽ ആണല്ലേ👀",show_alert=True)
+        await query.answer("Dont touch there👀",show_alert=True)
