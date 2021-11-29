@@ -139,7 +139,7 @@ The spelling of the name of the requested toon may not be correct...
 So you go to [Google](https://www.google.com/search?q={search}) and check the spelling of the name of the toon you want.
 
 Otherwise, This toon may not in my database,
-So, wait till it uploads",
+So, wait till it uploads""",
             reply_to_message_id=message.message_id
         )
             return
