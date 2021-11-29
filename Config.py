@@ -27,7 +27,7 @@ AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_channel = environ.get('FORCES_SUB')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else auth_channel
 AUTH_GROUPS = [int(admin) for admin in environ.get("AUTH_GROUPS", "").split()]
-TUTORIAL = "https://youtu.be/-xDQbsF-wek"
+TUTORIAL = "https://t.me/free_cartoons"
 # MongoDB information
 DATABASE_URI = environ['DATABASE_2']
 DATABASE_NAME = environ['BOT_NAME']
@@ -35,13 +35,21 @@ COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # Messages
 default_start_msg = """
-**Hi, I'm Auto Filter V3**
+Hi👋,
+I'm **Mickey Mouse**
 
-Here you can search files in Inline mode as well as PM, Use the below buttons to search files or send me the name of file to search.
+I can provide toons in any group😎
+
+You can also search toons in Inline mode, 
+Tap the below **🔍SEARCH** to search toons.
+
+Or send me the name of a toon😀
+
+Tap **🤔Help** for more details
 """
 START_MSG = environ.get('START_MSG', default_start_msg)
 
-FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "")
+FILE_CAPTION = "This is your toon😊\nEnjoy it!👍"
 OMDB_API_KEY = environ.get("OMDB_API_KEY", "http://www.omdbapi.com/?i=tt3896198&apikey=4f08a979")
 if FILE_CAPTION.strip() == "":
     CUSTOM_FILE_CAPTION=None
