@@ -131,9 +131,9 @@ async def group(client, message):
                 )
         else:
             LuciferMoringstar=await client.send_photo(
-            photo="https://te.legra.ph/file/f6b2033e822e14b3b0218.png"    
+            photo="https://te.legra.ph/file/f6b2033e822e14b3b0218.png",    
             chat_id = message.chat.id,
-            text=f"""
+            caption=f"""
 👋Hey {message.from_user.mention}
 The spelling of the name of the requested toon may not be correct...
 So you go to [Google](https://www.google.com/search?q={search}) and check the spelling of the name of the toon you want.
