@@ -381,14 +381,14 @@ async def help(bot, message):
         [
             InlineKeyboardButton
                 (
-                     '📺 Group 📺', url="https://t.me/free_cartoons"
+                     '📺 My Group 📺', url="https://t.me/free_cartoons"
                 )
         ]
     ]
     await bot.send_photo(
         chat_id=message.from_user.id,
         photo=f"{random.choice(PHOTO)}",
-        caption=f"Add me to your Group as admin\nGive me full permission\nI will give movies there\n\n<b><u>Basic Commads</u></b>\n➥ /start : check if am alive or dead\n➥ /about : About Me\n➥ /stats user Status",
+        caption=f"Add me to your Group as admin\nGive me full permission\nI will give toons there\n\n<b><u>Basic Commads</u></b>\n➥ /start : check if am alive or dead\n➥ /about : About Me\n➥ /stats user Status",
         parse_mode="html",
         reply_to_message_id=message.message_id,
         reply_markup=InlineKeyboardMarkup(buttons))
