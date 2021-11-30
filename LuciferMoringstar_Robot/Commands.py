@@ -363,11 +363,11 @@ async def bot_info(bot, message):
         [
             InlineKeyboardButton
                 (
-                     '🎵Music Group🎵', url='t.me/song_requestgroup'
+                     '🎸Music Group🎸', url="https://t.me/song_requestgroup"
                 )
         ]
     ]
-        await bot.send_photo(
+    await bot.send_photo(
         chat_id=message.from_user.id,
         photo=f"{random.choice(PHOTO)}",
         caption=f"{ABOUT}",
