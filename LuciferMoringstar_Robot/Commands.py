@@ -16,7 +16,7 @@ LOG_CHANNEL = BROADCAST_CHANNEL
 
 db = Database(DB_URL, SESSION)
 
-st =         "await message.reply_text(
+st =       "await message.reply_text(
             START_MSG.format(message.from_user.first_name),
             parse_mode="Markdown",
             disable_web_page_preview=True,
