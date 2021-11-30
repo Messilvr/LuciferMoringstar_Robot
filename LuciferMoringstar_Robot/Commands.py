@@ -149,7 +149,7 @@ async def start(bot, message):
                             ),
                         InlineKeyboardButton
                             (
-                                "🤖Developer", url="https://t.me/Geronimo1234"
+                                "Group📺", url="https://t.me/free_cartoons"
                             )
                     ],
                     [
@@ -372,7 +372,7 @@ async def bot_info(bot, message):
         [
             InlineKeyboardButton
                 (
-                     'Group', url=f'{TUTORIAL}'
+                     '🎵Music Group🎵', url='t.me/song_requestgroup'
                 )
         ]
     ]
