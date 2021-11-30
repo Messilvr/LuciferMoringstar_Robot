@@ -63,7 +63,17 @@ async def filter(client, message):
                     [InlineKeyboardButton(text=f"{filename}",callback_data=f"pr0fess0r_99#{file_id}")]
                     )
         else:
-            await client.send_sticker(chat_id=message.from_user.id, sticker='CAADBQADMwIAAtbcmFelnLaGAZhgBwI')
+            await client.send_photo(
+            photo="https://te.legra.ph/file/f6b2033e822e14b3b0218.png",    
+            chat_id = message.chat.id,
+            caption=f"""
+👋Hey {message.from_user.mention}
+The spelling of the name of the requested toon may not be correct...
+So you go to [Google](https://www.google.com/search?q={search}) and check the spelling of the name of the toon you want.
+
+Otherwise, This toon may not in my database,
+So, wait till it uploads"""
+        )
             return
 
         if not btn:
@@ -104,9 +114,9 @@ async def filter(client, message):
         if API_KEY:
             poster=await get_poster(search)
         if poster:
-            await message.reply_photo(photo="https://te.legra.ph/file/1688daa934833fc510ba4.png", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_photo(photo=poster, caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_photo(photo="https://te.legra.ph/file/1688daa934833fc510ba4.png", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
 
 @Client.on_message(filters.text & filters.group & filters.incoming & filters.chat(AUTH_GROUPS) if AUTH_GROUPS else filters.text & filters.group & filters.incoming)
 async def group(client, message):
@@ -139,9 +149,10 @@ The spelling of the name of the requested toon may not be correct...
 So you go to [Google](https://www.google.com/search?q={search}) and check the spelling of the name of the toon you want.
 
 Otherwise, This toon may not in my database,
-So, wait till it uploads""",
-            reply_to_message_id=message.message_id
+So, wait till it uploads"""
         )
+        await asyncio.sleep(10)
+        await k.delete()            
             return
         if not btn:
             return
