@@ -151,8 +151,6 @@ So you go to [Google](https://www.google.com/search?q={search}) and check the sp
 Otherwise, This toon may not in my database,
 So, wait till it uploads"""
         )
-        await asyncio.sleep(10)
-        await k.delete()            
             return
         if not btn:
             return
