@@ -137,7 +137,7 @@ async def start(bot, message):
         await bot.send_video(
         chat_id=message.from_user.id,
         video="https://telegra.ph/file/d1b816847d0fef480c9db.mp4",
-        thumb="https://telegra.ph/file/930621719dfd8bd99d32f.jpg",    
+        thumb=f"https://telegra.ph/file/930621719dfd8bd99d32f.jpg",    
         caption=START_MSG.format(message.from_user.first_name),
         parse_mode="markdown",
         reply_to_message_id=message.message_id,
@@ -146,7 +146,7 @@ async def start(bot, message):
                     [
                         InlineKeyboardButton
                             (
-                                "🔎Search Here", switch_inline_query_current_chat=''
+                                "🔍Search", switch_inline_query_current_chat=''
                             ),
                         InlineKeyboardButton
                             (
