@@ -143,7 +143,7 @@ async def start(bot, message):
             )
         )
     else:
-
+{random.choice(st)}
         StopPropagation
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
