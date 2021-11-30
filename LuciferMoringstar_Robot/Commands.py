@@ -18,24 +18,15 @@ LOG_CHANNEL = BROADCAST_CHANNEL
 db = Database(DB_URL, SESSION)
 
 PHOTO = [
-    "https://te.legra.ph/file/041d4be90a892bc55d8ee.png",
-    "https://te.legra.ph/file/d647987b06d87c7b38a29.png",
-    "https://te.legra.ph/file/0fe1d367abbefb5a033aa.png",
-    "https://te.legra.ph/file/bec2316ec6d24bb49370d.png",
-    "https://te.legra.ph/file/c5e781763099ba65c67d2.png",
-    "https://te.legra.ph/file/c5aa4130e4633c0020b00.png",
-    "https://te.legra.ph/file/e0a69173e71037ffddd91.png",
-    "https://te.legra.ph/file/af216f19f8f7920be58f3.png",
-    "https://te.legra.ph/file/2911e3195794624ee38d1.png",
-    "https://te.legra.ph/file/2911e3195794624ee38d1.png",
-    "https://te.legra.ph/file/c7981092a7a3d26941091.png",
-    "https://te.legra.ph/file/10aa09d791f6c6ea727ce.png",
-    "https://te.legra.ph/file/429e3d45e35669e48b377.png",
-    "https://te.legra.ph/file/343bd776262906597be43.png",
-    "https://te.legra.ph/file/d90c757c29b6109aac9f2.png",
-    "https://te.legra.ph/file/303332337b7ba0b73b9c3.png",
-    "https://te.legra.ph/file/f5b3db1194bc1c5e9d2fa.png",
-    "https://te.legra.ph/file/1748e4507592d644c33cd.png"
+    "https://te.legra.ph/file/3f54920a2b02c9d14a9f9.jpg",
+    "https://te.legra.ph/file/07c8d85663401cf5ab247.png",
+    "https://te.legra.ph/file/1ce41c0375151f4caec64.png",
+    "https://te.legra.ph/file/71caab015b6fb01d4f822.jpg",
+    "https://te.legra.ph/file/f9006608210453e9476e2.jpg",
+    "https://te.legra.ph/file/2ba8dc8ba27e962438c18.jpg",
+    "https://te.legra.ph/file/c9304c96e41de982e871a.jpg",
+    "https://telegra.ph/Geronimo-11-30",
+    "https://te.legra.ph/file/e5d37f36d93aeb4e3ed08.jpg"
     ]
 
 @Client.on_message(filters.command("start"))
@@ -140,7 +131,6 @@ async def start(bot, message):
         thumb=f"https://telegra.ph/file/930621719dfd8bd99d32f.jpg",    
         caption=START_MSG.format(message.from_user.first_name),
         parse_mode="markdown",
-        reply_to_message_id=message.message_id,
         reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -377,4 +367,28 @@ async def bot_info(bot, message):
                 )
         ]
     ]
-    await message.reply(text=f"{ABOUT}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+        await bot.send_photo(
+        chat_id=message.from_user.id,
+        photo=f"{random.choice(PHOTO)}",
+        caption=f"{ABOUT}",
+        parse_mode="md",
+        reply_to_message_id=message.message_id,
+        reply_markup=InlineKeyboardMarkup(buttons))
+        
+@Client.on_message(filters.command('help'))
+async def help(bot, message):
+    buttons = [
+        [
+            InlineKeyboardButton
+                (
+                     '📺 Group 📺', url="https://t.me/free_cartoons"
+                )
+        ]
+    ]
+    await bot.send_photo(
+        chat_id=message.from_user.id,
+        photo=f"{random.choice(PHOTO)}",
+        caption=f"Add me to your Group as admin\nGive me full permission\nI will give movies there\n\n<b><u>Basic Commads</u></b>\n➥ /start : check if am alive or dead\n➥ /about : About Me\n➥ /stats user Status",
+        parse_mode="html",
+        reply_to_message_id=message.message_id,
+        reply_markup=InlineKeyboardMarkup(buttons))
