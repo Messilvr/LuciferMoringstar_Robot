@@ -106,10 +106,10 @@ async def start(bot, message):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('🖥️ Group 🖥️', url=f'{TUTORIAL}')
+                        InlineKeyboardButton('📺 Group 📺', url=f'{TUTORIAL}')
                     ],
                     [
-                        InlineKeyboardButton('🔍 Search again 🔎', switch_inline_query_current_chat='')
+                        InlineKeyboardButton('🔍 Search a Toon 🔎', switch_inline_query_current_chat='')
                     ]
                     ]
                 await bot.send_cached_media(
@@ -137,6 +137,7 @@ async def start(bot, message):
         await bot.send_video(
         chat_id=message.from_user.id,
         video="https://telegra.ph/file/d1b816847d0fef480c9db.mp4",
+        thumb="https://telegra.ph/file/930621719dfd8bd99d32f.jpg",    
         caption=START_MSG.format(message.from_user.first_name),
         parse_mode="markdown",
         reply_to_message_id=message.message_id,
