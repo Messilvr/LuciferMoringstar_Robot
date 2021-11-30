@@ -134,11 +134,11 @@ async def start(bot, message):
             )
         )
     else:
-        await bot.send_photo(
+        await bot.send_video(
         chat_id=message.from_user.id,
-        photo=f"{random.choice(PHOTO)}",
+        video="https://telegra.ph/file/d1b816847d0fef480c9db.mp4",
         caption=START_MSG.format(message.from_user.first_name),
-        parse_mode="html",
+        parse_mode="markdown",
         reply_to_message_id=message.message_id,
         reply_markup=InlineKeyboardMarkup(
                 [
