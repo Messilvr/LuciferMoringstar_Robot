@@ -16,6 +16,37 @@ LOG_CHANNEL = BROADCAST_CHANNEL
 
 db = Database(DB_URL, SESSION)
 
+st =         "await message.reply_text(
+            START_MSG.format(message.from_user.first_name),
+            parse_mode="Markdown",
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton
+                            (
+                                "🔎Search Toons", switch_inline_query_current_chat=''
+                            ),
+                        InlineKeyboardButton
+                            (
+                                "😍Group", url="https://t.me/MT_Botz"
+                            )
+                    ],
+                    [
+                        InlineKeyboardButton
+                            (
+                                "🤔Help", callback_data="help"
+                            ),
+                        InlineKeyboardButton
+                            (
+                                "🤠About", callback_data="about"
+                            )
+                    ]
+                ]
+            )
+        )",
+        "await message.reply_text(hi)"
+
 @Client.on_message(filters.command("start"))
 async def start(bot, message):
     chat_id = message.from_user.id
@@ -112,35 +143,7 @@ async def start(bot, message):
             )
         )
     else:
-        await message.reply_text(
-            START_MSG.format(message.from_user.first_name),
-            parse_mode="Markdown",
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton
-                            (
-                                "🔎Search Toons", switch_inline_query_current_chat=''
-                            ),
-                        InlineKeyboardButton
-                            (
-                                "😍Group", url="https://t.me/MT_Botz"
-                            )
-                    ],
-                    [
-                        InlineKeyboardButton
-                            (
-                                "🤔Help", callback_data="help"
-                            ),
-                        InlineKeyboardButton
-                            (
-                                "🤠About", callback_data="about"
-                            )
-                    ]
-                ]
-            )
-        )
+
         StopPropagation
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
