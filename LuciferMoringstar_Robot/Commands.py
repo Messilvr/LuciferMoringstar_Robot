@@ -58,11 +58,11 @@ async def start(bot, message):
                 ident, file_id = message.text.split("_-_-_-_")
                 await bot.send_message(
                     chat_id=message.from_user.id,
-                    text="**Please Join My Updates Channel to use this Bot!**",
+                    text="**Please Join My Group!** and click **🔄 Try Again**",
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("📢 Join Updates Channel 📢", url=invite_link.invite_link)
+                                InlineKeyboardButton("📺Click here to see the Group📺", url=invite_link.invite_link)
                             ],
                             [
                                 InlineKeyboardButton("🔄 Try Again", callback_data=f"checksub#{file_id}")
@@ -202,7 +202,7 @@ async def broadcast_handler_open(_, m):
 @Client.on_message(filters.private & filters.command("stats"))
 async def sts(c, m):
     await m.reply_text(
-        text=f"**Total Users in Database 📂:** `{await db.total_users_count()}``",
+        text=f"**Total Users 📂:** `{await db.total_users_count()}``",
         parse_mode="Markdown",
         quote=True
     )
