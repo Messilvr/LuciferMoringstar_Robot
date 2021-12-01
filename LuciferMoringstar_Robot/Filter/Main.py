@@ -9,6 +9,12 @@ from LuciferMoringstar_Robot import RATING, GENRES, HELP, ABOUT
 import random
 BUTTONS = {}
 BOT = {}
+PIC = ["https://te.legra.ph/file/3ddce257959176358a197.jpg",
+      "https://te.legra.ph/file/0b5fb0bf9ff5f119fba49.jpg",
+      "https://te.legra.ph/file/ecfb0fddd18323b5093f9.jpg",
+      "https://te.legra.ph/file/47b4298f6400771e78061.jpg",
+      "https://te.legra.ph/file/0c7975993c18280808203.jpg",
+      "https://te.legra.ph/file/a376ed78652f612a63a5a.jpg"]
 
 @Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming)
 async def filter(client, message):
@@ -98,7 +104,7 @@ So, wait till it uploads"""
                 await message.reply_photo(photo="https://te.legra.ph/file/1688daa934833fc510ba4.png", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
 
             else:
-                await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_photo(photo="https://te.legra.ph/file/a46b7528ce3655e895e6f.jpg", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
@@ -116,7 +122,7 @@ So, wait till it uploads"""
         if poster:
             await message.reply_photo(photo=poster, caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            await message.reply_photo(photo="https://te.legra.ph/file/1688daa934833fc510ba4.png", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_photo(photo="https://te.legra.ph/file/a46b7528ce3655e895e6f.jpg", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
 
 @Client.on_message(filters.text & filters.group & filters.incoming & filters.chat(AUTH_GROUPS) if AUTH_GROUPS else filters.text & filters.group & filters.incoming)
 async def group(client, message):
@@ -125,7 +131,7 @@ async def group(client, message):
     if 2 < len(message.text) < 50:    
         btn = []
         search = message.text
-        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n**📤 Uploaded by {message.chat.title}**"
+        mo_tech_yt = f"**🗂️ Title:** {search}\n\n**⭐ Rating:** {random.choice(RATING)}\n\n**📤 By {message.chat.title}**"
         nyva=BOT.get("username")
         if not nyva:
             botusername=await client.get_me()
@@ -173,7 +179,7 @@ So, wait till it uploads"""
             if poster:
                 await message.reply_photo(photo="https://te.legra.ph/file/1688daa934833fc510ba4.png", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
             else:
-                await message.reply_photo(photo="https://te.legra.ph/file/1688daa934833fc510ba4.png", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_photo(photo=f"{random.choice(PIC)}", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
@@ -191,7 +197,7 @@ So, wait till it uploads"""
         if poster:
             await message.reply_photo(photo="https://te.legra.ph/file/1688daa934833fc510ba4.png", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+            wait message.reply_photo(photo=f"{random.choice(PIC)}", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
 
     
 def get_size(size):
