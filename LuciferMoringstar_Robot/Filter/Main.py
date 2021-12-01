@@ -39,7 +39,7 @@ async def filter(client, message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("📢 Join Updates Channel 📢", url=invite_link.invite_link)
+                            InlineKeyboardButton("📢 Join My Group 📢", url=invite_link.invite_link)
                         ]
                     ]
                 ),
@@ -130,7 +130,7 @@ async def group(client, message):
     if 2 < len(message.text) < 50:    
         btn = []
         search = message.text
-        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n\n**⚡️ Requested by**: {message.from_user.first_name}\n**📤 Uploaded by**: {message.chat.title}\n\n👇Select your file from below 👇"
+        mo_tech_yt = f"**🗂️ Title:** {search}\n**⭐ Rating:** {random.choice(RATING)}\n\n**⚡️ Requested by**: {message.from_user.first_name}\n**📤 Uploaded by**: {message.chat.title}\n\n**👇Select your file from below options👇**"
         nyva=BOT.get("username")
         if not nyva:
             botusername=await client.get_me()
