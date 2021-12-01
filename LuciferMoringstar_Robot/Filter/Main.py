@@ -102,7 +102,6 @@ So, wait till it uploads"""
                 poster=await get_poster(search)
             if poster:
                 await message.reply_photo(photo="https://te.legra.ph/file/1688daa934833fc510ba4.png", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
-
             else:
                 await message.reply_photo(photo="https://te.legra.ph/file/a46b7528ce3655e895e6f.jpg", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
             return
@@ -197,7 +196,7 @@ So, wait till it uploads"""
         if poster:
             await message.reply_photo(photo="https://te.legra.ph/file/1688daa934833fc510ba4.png", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            wait message.reply_photo(photo=f"{random.choice(PIC)}", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_photo(photo=f"{random.choice(PIC)}", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
 
     
 def get_size(size):
