@@ -173,7 +173,7 @@ So, wait till it uploads"""
             if poster:
                 await message.reply_photo(photo="https://te.legra.ph/file/1688daa934833fc510ba4.png", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
             else:
-                await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_photo(photo="https://te.legra.ph/file/1688daa934833fc510ba4.png", caption=mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
@@ -297,18 +297,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 return
         elif query.data == "help":
             buttons = [[
-                InlineKeyboardButton('Channel', url='t.me/free_music123'),
-                InlineKeyboardButton('Group', url='t.me/free_cartoons')
+                InlineKeyboardButton('🎷Channel🎷', url='t.me/free_music123'),
+                InlineKeyboardButton('🎷Group🎷', url='t.me/free_cartoons')
                 ],[
-                InlineKeyboardButton('💫Dev💫', url="t.me/geronimo1234")
+                InlineKeyboardButton('📺Toon Group📺', url="t.me/geronimo1234")
                 ]]
             await query.message.edit(text=f"{HELP}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "about":
             buttons = [
                 [
-                    InlineKeyboardButton('Channel', url='t.me/free_music123'),
-                    InlineKeyboardButton('Group', url='t.me/free_cartoons')
+                    InlineKeyboardButton('🎧Channel🎧', url='t.me/free_music123'),
+                    InlineKeyboardButton('🎧Group🎧', url='t.me/free_cartoons')
                 ]
                 ]
             await query.message.edit(text=f"{ABOUT}".format(TUTORIAL), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -331,7 +331,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('💫Dev💫', url="t.me/geronimo1234")
+                        InlineKeyboardButton('🎭 Toon Group 🎭', url=f't.me/free_cartoons')
                     ]
                     ]
                 
@@ -362,7 +362,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{title}"
                 buttons = [
                     [
-                        InlineKeyboardButton('Group', url=f't.me/free_cartoons')
+                        InlineKeyboardButton('🎪 My Group 🎪', url=f't.me/free_cartoons')
                     ]
                     ]
                 
@@ -378,4 +378,4 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "pages":
             await query.answer()
     else:
-        await query.answer("Dont touch there👀",show_alert=True)
+        await query.answer("That's not for you!😡",show_alert=True)
