@@ -159,7 +159,7 @@ So, wait till it uploads"""
         )
         await asyncio.sleep(8)
         await LuciferMoringstar.delete()
-            return
+        return
         if not btn:
             return
 
