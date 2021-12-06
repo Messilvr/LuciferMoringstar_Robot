@@ -3,6 +3,7 @@ from Config import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
 import re
+import asyncio
 from pyrogram.errors import UserNotParticipant
 from LuciferMoringstar_Robot import get_filter_results, get_file_details, is_subscribed, get_poster
 from LuciferMoringstar_Robot import RATING, GENRES, HELP, ABOUT
@@ -156,6 +157,8 @@ So you go to [Google](https://www.google.com/search?q={search}) and check the sp
 Otherwise, This toon may not in my database,
 So, wait till it uploads"""
         )
+                    await asyncio.sleep(8)
+        await LuciferMoringstar.delete()
             return
         if not btn:
             return
