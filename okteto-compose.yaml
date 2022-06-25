@@ -1,0 +1,17 @@
+version: "3.10"
+services:
+  worker:
+    build: .
+    environment:
+      - API_ID=${API_ID}
+      - API_HASH=${API_HASH}
+      - BOT_TOKEN=${BOT_TOKEN}
+      - ADMIN_ID=${ADMIN_ID}
+      - ADMINS=${ADMINS}
+      - BOT_NAME=${BOT_NAME}
+      - BROADCAST_CHANNEL=${BROADCAST_CHANNEL}
+      - CHANNELS=${CHANNELS}
+      - DATABASE_1=${DATABASE_1}
+      - FORCES_SUB=${FORCES_SUB}
+      - DATABASE_1=${DATABASE_1}
+      
