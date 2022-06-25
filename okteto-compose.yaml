@@ -13,5 +13,5 @@ services:
       - CHANNELS=${CHANNELS}
       - DATABASE_1=${DATABASE_1}
       - FORCES_SUB=${FORCES_SUB}
-      - DATABASE_1=${DATABASE_1}
+      - DATABASE_2=${DATABASE_2}
       
